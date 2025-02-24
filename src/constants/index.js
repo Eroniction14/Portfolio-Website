@@ -43,6 +43,11 @@ import {
       id: "contact",
       title: "Contact",
     },
+     {
+    id: "resume",
+    title: "Resume",
+    url: "/Resume.pdf",
+  },
   ];
   
   const services = [
@@ -61,12 +66,7 @@ import {
     {
       title: "Service Now",
       icon: creator,
-    },
-    {
-    id: "resume",
-    title: "Resume",
-    url: "/Resume.pdf",
-  },
+    },   
   ];
   
   const technologies = [
