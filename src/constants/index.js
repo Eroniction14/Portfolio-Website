@@ -43,11 +43,6 @@ import {
       id: "contact",
       title: "Contact",
     },
-     {
-    id: "resume",
-    title: "Resume",
-    url: "/Resume.pdf",
-  },
   ];
   
   const services = [
