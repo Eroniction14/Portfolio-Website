@@ -52,7 +52,7 @@ export const navLinks = [
   {
     id: "resume",
     title: "Resume",
-    url: "/Resume.pdf",
+    url: "/Portfolio-Website/Resume.pdf",
   },
 ];
 

@@ -25,6 +25,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (nav) => {
+    setActive(nav.title);
+    if (nav.url) {
+      window.open(nav.url, '_blank');
+    }
+  };
+
   return (
     <nav
       className={`${
@@ -44,8 +51,8 @@ const Navbar = () => {
         >
           <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
           <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Mark &nbsp;
-            <span className='sm:block hidden'> | Electronics and Software Mastery</span>
+            Eronic &nbsp;
+            <span className='sm:block hidden'> | Portfolio</span>
           </p>
         </Link>
 
@@ -56,9 +63,13 @@ const Navbar = () => {
               className={`${
                 active === nav.title ? "text-white" : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
+              onClick={() => handleNavClick(nav)}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+              {nav.url ? (
+                <span>{nav.title}</span>
+              ) : (
+                <a href={`#${nav.id}`}>{nav.title}</a>
+              )}
             </li>
           ))}
         </ul>
@@ -85,10 +96,14 @@ const Navbar = () => {
                   }`}
                   onClick={() => {
                     setToggle(!toggle);
-                    setActive(nav.title);
+                    handleNavClick(nav);
                   }}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  {nav.url ? (
+                    <span>{nav.title}</span>
+                  ) : (
+                    <a href={`#${nav.id}`}>{nav.title}</a>
+                  )}
                 </li>
               ))}
             </ul>
