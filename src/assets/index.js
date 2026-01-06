@@ -6,6 +6,7 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import boston311 from "./boston311.jpg";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -20,15 +21,14 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import sql from "./tech/database.png";
 import go from "./tech/go.png";
 import firebase from "./tech/firebase.png";
-import sql from "./tech/database.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
-import pattarai from "./company/pattarai.png";
 import capg from "./company/capg.png";
 import licetpattarai from "./company/licetpattarai.png";
 import pinaca from "./company/pinaca.png";
@@ -39,7 +39,6 @@ import tripguide from "./tripguide.png";
 import erp from "./ERP.png";
 import language from "./language.png";
 import image from "./image.jpeg";
-
 
 export {
   logo,
@@ -66,18 +65,18 @@ export {
   meta,
   shopify,
   starbucks,
-  pattarai,
-  capg,
-  licetpattarai,
   tesla,
-  pinaca,
   carrent,
   jobit,
   tripguide,
+  capg,
+  pinaca,
+  licetpattarai,
+  sql,
   go,
   firebase,
-  sql,
   erp,
   language,
-  image
+  image,
+  boston311
 };
