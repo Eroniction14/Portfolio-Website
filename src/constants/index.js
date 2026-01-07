@@ -230,7 +230,7 @@ const projects = [
       },
     ],
     image: hub,
-    source_code_link: "https://github.com/Eroniction14/Academic_Hub",
+    source_code_link: "https://github.com/Eroniction14/AcademicHub",
   },
   {
     name: "F1 RAG Chatbot",
