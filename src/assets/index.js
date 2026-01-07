@@ -7,6 +7,8 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import boston311 from "./boston311.jpg";
+import hub from "./hub.png";  // Add this
+import F1 from "./F1.png";     // Add this
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -78,5 +80,7 @@ export {
   erp,
   language,
   image,
-  boston311
+  boston311,
+  hub,      // Add this
+  F1        // Add this
 };

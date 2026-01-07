@@ -32,7 +32,9 @@ import {
   image,
   language,
   erp,
-  boston311
+  boston311,
+  hub,      // Add this
+  F1        // Add this
 } from "../assets";
 
 
@@ -174,71 +176,20 @@ const testimonials = [
     testimonial:
       "Conducted a Python workshop for students who had completed Schooling with over 60 participants",
     name: "LICET",
-    // designation: "CFO",
-    // company: "Acme Co",
-    // image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
   {
     testimonial:
       "Winner in the LICET PATTARAI hackathon for building DAB Fitness, an app connecting users with fitness trainers to maintain routines during the COVID pandemic.",
     name: "LICET Pattarai",
-    // designation: "COO",
-    // company: "DEF Corp",
-    // image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
     testimonial:
       "Participated in Smart India Hackathon. Presented on an idea about enabling drones to deliver and monitor situation during floods ",
     name: "Delhi",
-    // designation: "CTO",
-    // company: "456 Enterprises",
-    // image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];
 
 const projects = [
-  {
-    name: "ERP Mark's Module",
-    description:
-      "The XStack is an ERP suite built for the college in the view of an independent service provider with no involvement of third parties which are less reliable or even the servers are down due to many requests coming in simultaneously.",
-    tags: [
-      {
-        name: "ERP",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "LAMP",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Full-stack",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: erp,
-    source_code_link: "https://github.com/pattarai/xstack-marks-student.git",
-  },
-  {
-    name: "Language Translator",
-    description:
-      "Focused on improving BLEU scores for underexplored linguistic groups using MT-5, a multilingual transformer. Applied machine learning algorithms to enhance translation accuracy and efficiency, optimizing performance for underserved communities",
-    tags: [
-      {
-        name: "NLP",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "MachineLearning",
-        color: "green-text-gradient",
-      },
-      {
-        name: "translation",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: language,
-    source_code_link: "https://github.com/Eroniction14/Language-Translator",
-  },
   {
     name: "Boston 311 AI System",
     description:
@@ -259,6 +210,48 @@ const projects = [
     ],
     image: boston311,
     source_code_link: "https://github.com/Eroniction14/boston-311-ai-system",
+  },
+  {
+    name: "Academic Hub",
+    description:
+      "A real-time academic collaboration system built with React, Node.js, PostgreSQL, and Socket.io supporting messaging and notifications. Features secure backend APIs with JWT authentication and optimized schemas ensuring 99.9% uptime.",
+    tags: [
+      {
+        name: "FullStack",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "React",
+        color: "green-text-gradient",
+      },
+      {
+        name: "WebSockets",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: hub,
+    source_code_link: "https://github.com/Eroniction14/Academic_Hub",
+  },
+  {
+    name: "F1 RAG Chatbot",
+    description:
+      "A responsive, context-aware chatbot built with Next.js and TypeScript delivering real-time Formula 1 insights. Implemented vector-based retrieval pipelines with Pinecone and Weaviate, reducing query latency by 40%. Integrated AWS Bedrock for LLM processing.",
+    tags: [
+      {
+        name: "RAG",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "AWS",
+        color: "green-text-gradient",
+      },
+      {
+        name: "VectorDB",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: F1,
+    source_code_link: "https://github.com/Eroniction14/F1-RAG-Chatbot",
   },
 ];
 
