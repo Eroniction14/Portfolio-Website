@@ -47,11 +47,10 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        I’m a Skilled in Python, JavaScript, TypeScript, and frameworks like React, Node.js, Angular, 
-        I specialize in building scalable, secure, and user-friendly applications. Experienced in ServiceNow, 
-        REST/SOAP APIs, NLP models, and AWS-certified in Cloud Architecture, I develop intelligent solutions 
-        that drive efficiency. Passionate about problem-solving and innovation, I create systems that seamlessly 
-        integrate technology to tackle real-world challenges
+        Skilled in Python, TypeScript, and Java with expertise in React, Node.js, and Next.js for full-stack development. 
+        Experienced in building scalable data pipelines, ML-powered systems, and RAG-based AI applications using AWS, Docker, 
+        and tools like LangChain and OpenAI API. AWS Certified Cloud Practitioner passionate about solving real-world 
+        problems through intelligent, data-driven solutions."
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

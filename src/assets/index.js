@@ -7,25 +7,26 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import boston311 from "./boston311.jpg";
-import hub from "./hub.png";  // Add this
-import F1 from "./F1.png";     // Add this
+import hub from "./hub.png";
+import F1 from "./F1.png";
+import crossword from "./crossword.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
-import javascript from "./tech/javascript.png";
 import mongodb from "./tech/mongodb.png";
 import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
-import threejs from "./tech/threejs.svg";
 import sql from "./tech/database.png";
 import go from "./tech/go.png";
-import firebase from "./tech/firebase.png";
+import python from "./tech/python.png";
+import java from "./tech/java.png";
+import aws from "./tech/aws.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -56,14 +57,12 @@ export {
   figma,
   git,
   html,
-  javascript,
   mongodb,
   nodejs,
   reactjs,
   redux,
   tailwind,
   typescript,
-  threejs,
   meta,
   shopify,
   starbucks,
@@ -76,11 +75,14 @@ export {
   licetpattarai,
   sql,
   go,
-  firebase,
+  python,
+  java,
+  aws,
   erp,
   language,
   image,
   boston311,
-  hub,      // Add this
-  F1        // Add this
+  hub,
+  F1,
+  crossword
 };

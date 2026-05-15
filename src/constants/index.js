@@ -3,7 +3,7 @@ import {
   backend,
   creator,
   web,
-  javascript,
+  python,
   typescript,
   html,
   css,
@@ -22,19 +22,20 @@ import {
   carrent,
   jobit,
   tripguide,
-  threejs,
+  java,
   capg,
   licetpattarai,
   pinaca,
   sql,
   go,
-  firebase,
+  aws,
   image,
   language,
   erp,
   boston311,
-  hub,      // Add this
-  F1        // Add this
+  hub,
+  F1,
+  crossword
 } from "../assets";
 
 
@@ -54,7 +55,7 @@ export const navLinks = [
   {
     id: "resume",
     title: "Resume",
-    url: "/Portfolio-Website/Resume.pdf",
+    url: "/Portfolio-Website/Resume1.pdf",
   },
 ];
 
@@ -87,8 +88,8 @@ const technologies = [
     icon: css,
   },
   {
-    name: "JavaScript",
-    icon: javascript,
+    name: "Python",
+    icon: python,
   },
   {
     name: "TypeScript",
@@ -115,22 +116,28 @@ const technologies = [
     icon: mongodb,
   },
   {
-    name: "Three JS",
-    icon: threejs,
+    name: "Java",
+    icon: java,
   },
   {
-    name: "git",
+    name: "Git",
     icon: git,
   },
   {
-    name: "firebase",
-    icon: firebase,
+    name: "AWS",
+    icon: aws,
   },
   {
-    name: "docker",
+    name: "Docker",
     icon: docker,
   },
 ];
+
+// •	Engineered automated data pipelines processing 50K+ records daily using Python and REST APIs, reducing manual processing by 30%
+// •	Built CI/CD infrastructure with Jenkins and monitoring dashboards, achieving 99.5% system uptime across production environments
+// •	Designed REST/SOAP API integrations between ServiceNow, Jira, and enterprise systems, optimizing data flow by 40%
+// •	Collaborated with cross-functional teams following Agile methodologies to deliver scalable backend services on schedule
+
 
 const experiences = [
   {
@@ -142,7 +149,7 @@ const experiences = [
     points: [
       "Designed and developed a Marks Management Module as part of an ERP system, streamlining the process of entering, updating, and reviewing students' academic performance.",
       "Collaborated with the team to gather requirements through brainstorming sessions and supervised backend development.",
-      "Improved front-end programming skills and teamwork during the lockdown, contributing to productivity.",        
+      "Improved front-end programming skills and teamwork during the lockdown, contributing to productivity .",        
     ],
   },
   {
@@ -164,9 +171,10 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Oct 2022 - June 2024",
     points: [
-      "Optimized ITSM Workflows: Built 50+ ServiceNow workflows, automating tasks and improving service delivery.",
-      "Integrated Tools: Linked Jira, SCCM, and Active Directory via APIs, cutting manual data entry by 30%.",       
-      "Improved Debugging: Enhanced debugging, cutting runtime issues by 25% and boosting system reliability.",
+      "Engineered automated data pipelines processing 50K+ records daily using Python and REST APIs, reducing manual processing by 30%.",
+      "Built CI/CD infrastructure with Jenkins and monitoring dashboards, achieving 99.5% system uptime across production environments.",       
+      "Designed REST/SOAP API integrations between ServiceNow, Jira, and enterprise systems, optimizing data flow by 40%.",
+      "Collaborated with cross-functional teams following Agile methodologies to deliver scalable backend services on schedule."
     ],
   },
 ];
@@ -212,25 +220,25 @@ const projects = [
     source_code_link: "https://github.com/Eroniction14/boston-311-ai-system",
   },
   {
-    name: "Academic Hub",
+    name: "Crossword Solver",
     description:
-      "A real-time academic collaboration system built with React, Node.js, PostgreSQL, and Socket.io supporting messaging and notifications. Features secure backend APIs with JWT authentication and optimized schemas ensuring 99.9% uptime.",
+      "An AI-powered crossword solver combining FAISS vector retrieval over 1M+ clue-answer pairs with parallel LLM reasoning and loopy belief propagation. Features a React frontend with Flask SSE streaming for real-time solve visualization.",
     tags: [
       {
-        name: "FullStack",
+        name: "AI",
         color: "blue-text-gradient",
       },
       {
-        name: "React",
+        name: "FAISS",
         color: "green-text-gradient",
       },
       {
-        name: "WebSockets",
+        name: "React",
         color: "pink-text-gradient",
       },
     ],
-    image: hub,
-    source_code_link: "https://github.com/Eroniction14/AcademicHub",
+    image: crossword,
+    source_code_link: "https://github.com/Eroniction14/Crossword_Solver",
   },
   {
     name: "F1 RAG Chatbot",
