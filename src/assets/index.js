@@ -10,6 +10,7 @@ import boston311 from "./boston311.jpg";
 import hub from "./hub.png";
 import F1 from "./F1.png";
 import crossword from "./crossword.png";
+import job from "./job.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -84,5 +85,6 @@ export {
   boston311,
   hub,
   F1,
-  crossword
+  crossword,
+  job
 };

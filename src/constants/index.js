@@ -35,7 +35,8 @@ import {
   boston311,
   hub,
   F1,
-  crossword
+  crossword,
+  job
 } from "../assets";
 
 
@@ -241,25 +242,25 @@ const projects = [
     source_code_link: "https://github.com/Eroniction14/Crossword_Solver",
   },
   {
-    name: "F1 RAG Chatbot",
+    name: "Distributed Job Scheduler",
     description:
-      "A responsive, context-aware chatbot built with Next.js and TypeScript delivering real-time Formula 1 insights. Implemented vector-based retrieval pipelines with Pinecone and Weaviate, reducing query latency by 40%. Integrated AWS Bedrock for LLM processing.",
+      "A fault-tolerant distributed job scheduler built in Go with Kafka-based job distribution and real-time React dashboard. Implements consumer group load balancing ensuring zero duplicate execution. Deployed with Docker Compose, Kubernetes, and Terraform for AWS infrastructure.",
     tags: [
       {
-        name: "RAG",
+        name: "Go",
         color: "blue-text-gradient",
       },
       {
-        name: "AWS",
+        name: "Kubernetes",
         color: "green-text-gradient",
       },
       {
-        name: "VectorDB",
+        name: "Kafka",
         color: "pink-text-gradient",
       },
     ],
-    image: F1,
-    source_code_link: "https://github.com/Eroniction14/F1-RAG-Chatbot",
+    image: job,
+    source_code_link: "https://github.com/Eroniction14/distributed-job-scheduler-go",
   },
 ];
 
