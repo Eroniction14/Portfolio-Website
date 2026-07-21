@@ -50,7 +50,7 @@ const About = () => {
         Skilled in Python, TypeScript, and Java with expertise in React, Node.js, and Next.js for full-stack development. 
         Experienced in building scalable data pipelines, ML-powered systems, and RAG-based AI applications using AWS, Docker, 
         and tools like LangChain and OpenAI API. AWS Certified Cloud Practitioner passionate about solving real-world 
-        problems through intelligent, data-driven solutions."
+        problems through intelligent, data-driven solutions.
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

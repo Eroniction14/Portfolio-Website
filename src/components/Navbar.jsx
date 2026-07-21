@@ -40,9 +40,21 @@ const Navbar = () => {
         scrolled ? "bg-primary" : "bg-transparent"
       }`}
     >
+      {/* Pinned to the true left edge of the viewport, independent of
+          the centered max-w-7xl content below — so it sits at the
+          actual screen corner on wide screens instead of wherever the
+          centered container's edge happens to fall. */}
+      <Link
+        to='/'
+        aria-label='Back to landing page'
+        className='absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-secondary hover:text-white transition-colors duration-200 text-[16px] leading-none z-30'
+      >
+        ←
+      </Link>
+
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
-          to='/'
+          to='/home'
           className='flex items-center gap-2'
           onClick={() => {
             setActive("");
@@ -56,24 +68,34 @@ const Navbar = () => {
           </p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => handleNavClick(nav)}
-            >
-              {nav.url ? (
-                <span>{nav.title}</span>
-              ) : (
+        <ul className='list-none hidden sm:flex flex-row items-center gap-10'>
+          {navLinks.map((nav) =>
+            // Resume is an external action (opens a PDF), not a scroll
+            // target — styled as a pill button so it visually reads as
+            // "do a thing" rather than "jump to a section".
+            nav.url ? (
+              <li key={nav.id}>
+                <button
+                  onClick={() => handleNavClick(nav)}
+                  className='border border-[#BB86FC] text-[#BB86FC] hover:bg-[#BB86FC] hover:text-primary transition-colors duration-200 text-[14px] font-semibold px-5 py-2 rounded-full'
+                >
+                  {nav.title}
+                </button>
+              </li>
+            ) : (
+              <li
+                key={nav.id}
+                className={`${
+                  active === nav.title ? "text-white" : "text-secondary"
+                } hover:text-white text-[18px] font-medium cursor-pointer`}
+                onClick={() => handleNavClick(nav)}
+              >
                 <a href={`#${nav.id}`}>{nav.title}</a>
-              )}
-            </li>
-          ))}
+              </li>
+            )
+          )}
         </ul>
-        
+
         <div className='sm:hidden flex flex-1 justify-end items-center'>
           <img
             src={toggle ? close : menu}

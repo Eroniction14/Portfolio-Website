@@ -12,7 +12,11 @@ const Earth = () => {
   );
 };
 
-const EarthCanvas = () => {
+// `celebrate`: when true, autoRotateSpeed is boosted for a moment —
+// used by Contact.jsx to give a small visual "response" to a
+// successfully submitted message instead of the Earth just sitting
+// there disconnected from the form next to it.
+const EarthCanvas = ({ celebrate = false }) => {
   return (
     <Canvas
       shadows
@@ -29,6 +33,7 @@ const EarthCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           autoRotate
+          autoRotateSpeed={celebrate ? 12 : 2}
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}

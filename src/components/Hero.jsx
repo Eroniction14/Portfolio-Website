@@ -11,18 +11,26 @@ const Hero = () => {
       >
         <div className='flex flex-col justify-center items-center mt-5'>
           <div className='w-5 h-5 rounded-full bg-[#BB86FC]' />
-          <div
-            className='w-1 sm:h-80 h-40'
+          <motion.div
+            className='w-1 sm:h-80 h-40 origin-top'
             style={{
               background: "linear-gradient(to bottom, #BB86FC, transparent)",
             }}
-          />        
-          {/* <div className='w-1 sm:h-80 h-40 bg-gradient-to-b from-[#FF9D00] to-[#FF9D00]' /> */}
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+          />
         </div>
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className='text-[#BB86FC]'>Eroniction</span>
+            Hi, I'm{" "}
+            <span
+              className='text-[#BB86FC]'
+              style={{ textShadow: "0 0 30px rgba(187, 134, 252, 0.55)" }}
+            >
+              Eroniction
+            </span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             Software Engineer | Full-Stack Developer <br className='sm:block hidden' />
