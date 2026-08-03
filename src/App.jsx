@@ -1,8 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, Footer } from "./components";
 import CursorFollower from "./components/CursorFollower";
 import Landing from "./components/Landing";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 // Your existing full site, unchanged — just pulled into its own
 // component so it can sit behind the "/home" route instead of "/".
@@ -12,7 +13,9 @@ const MainSite = () => {
       <CursorFollower />
       <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
         <Navbar />
-        <Hero />
+        <ErrorBoundary>
+          <Hero />
+        </ErrorBoundary>
       </div>
       <About />
       <Experience />
@@ -30,12 +33,12 @@ const MainSite = () => {
 
 const App = () => {
   return (
-    <BrowserRouter basename='/Portfolio-Website'>
+    <HashRouter>
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/home' element={<MainSite />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

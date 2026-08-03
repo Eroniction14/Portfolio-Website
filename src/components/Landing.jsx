@@ -24,7 +24,7 @@ const Landing = () => {
         </p>
 
         <div
-          className='hidden w-screen h-px md:block animate-landing-fade-left'
+          className='w-screen h-px animate-landing-fade-left'
           style={{
             background:
               "linear-gradient(to right, rgba(187,134,252,0), rgba(187,134,252,0.6), rgba(187,134,252,0))",
@@ -32,14 +32,14 @@ const Landing = () => {
         />
 
         <h1
-          className='z-10 text-white cursor-default font-black text-[48px] sm:text-[72px] md:text-[110px] whitespace-nowrap animate-landing-title'
+          className='z-10 text-white cursor-default font-black text-[32px] xs:text-[40px] sm:text-[72px] md:text-[110px] whitespace-normal sm:whitespace-nowrap text-center px-2 animate-landing-title'
           style={{ textShadow: "0 0 40px rgba(187, 134, 252, 0.5)" }}
         >
           Hi, I'm <span className='text-[#BB86FC]'>Eroniction</span>
         </h1>
 
         <div
-          className='hidden w-screen h-px md:block animate-landing-fade-right'
+          className='w-screen h-px animate-landing-fade-right'
           style={{
             background:
               "linear-gradient(to right, rgba(187,134,252,0), rgba(187,134,252,0.6), rgba(187,134,252,0))",
