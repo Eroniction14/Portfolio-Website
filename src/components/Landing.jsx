@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import { StarsCanvas } from "./canvas";
@@ -11,6 +11,7 @@ import { StarsCanvas } from "./canvas";
 // system. Clicking Enter navigates to "/home".
 const Landing = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div className='flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-primary relative'>
@@ -59,7 +60,7 @@ const Landing = () => {
           transition={{ duration: 0.6, delay: 2.6 }}
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.96 }}
-          onClick={() => navigate("/home")}
+          onClick={() => navigate({ pathname: "/home", search: location.search })}
           className='border border-[#BB86FC] text-[#BB86FC] hover:bg-[#BB86FC] hover:text-primary transition-colors duration-200 text-[16px] font-semibold px-8 py-3 rounded-full'
         >
           Enter →

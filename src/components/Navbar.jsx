@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
@@ -9,6 +9,14 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  // Resume stays hidden by default so casually sharing this link (e.g.
+  // on LinkedIn) doesn't expose a public download. Only appears when
+  // the URL includes ?resume=true — use that version of the link
+  // specifically when a job portal asks for a portfolio URL.
+  const showResume = new URLSearchParams(location.search).get("resume") === "true";
+  const visibleNavLinks = navLinks.filter((nav) => nav.id !== "resume" || showResume);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +53,7 @@ const Navbar = () => {
           actual screen corner on wide screens instead of wherever the
           centered container's edge happens to fall. */}
       <Link
-        to='/'
+        to={{ pathname: "/", search: location.search }}
         aria-label='Back to landing page'
         className='absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-secondary hover:text-white transition-colors duration-200 text-[16px] leading-none z-30'
       >
@@ -54,7 +62,7 @@ const Navbar = () => {
 
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
-          to='/home'
+          to={{ pathname: "/home", search: location.search }}
           className='flex items-center gap-2'
           onClick={() => {
             setActive("");
@@ -69,7 +77,7 @@ const Navbar = () => {
         </Link>
 
         <ul className='list-none hidden sm:flex flex-row items-center gap-10'>
-          {navLinks.map((nav) =>
+          {visibleNavLinks.map((nav) =>
             // Resume is an external action (opens a PDF), not a scroll
             // target — styled as a pill button so it visually reads as
             // "do a thing" rather than "jump to a section".
@@ -110,7 +118,7 @@ const Navbar = () => {
             } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
+              {visibleNavLinks.map((nav) => (
                 <li
                   key={nav.id}
                   className={`font-poppins font-medium cursor-pointer text-[16px] ${
