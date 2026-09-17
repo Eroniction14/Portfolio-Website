@@ -5,6 +5,32 @@
     <link rel="icon" type="image/png" href="/src/assets/logo2.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eroniction | Portfolio</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      //
+      // Decodes the query-string-encoded path that 404.html redirected
+      // to, and restores it as the real URL via history.replaceState —
+      // this runs before React mounts, so React Router sees the correct
+      // path (e.g. /Portfolio-Website/home) on first render instead of
+      // the encoded redirect URL.
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
   </head>
   <body>
     <div id="root"></div>

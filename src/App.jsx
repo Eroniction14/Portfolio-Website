@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, Footer } from "./components";
 import CursorFollower from "./components/CursorFollower";
@@ -33,12 +33,12 @@ const MainSite = () => {
 
 const App = () => {
   return (
-    <HashRouter>
+    <BrowserRouter basename='/Portfolio-Website'>
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/home' element={<MainSite />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
