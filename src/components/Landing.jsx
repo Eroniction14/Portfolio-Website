@@ -47,10 +47,10 @@ const Landing = () => {
         />
 
         <div className='my-10 text-center animate-landing-fade-in px-6'>
-          <p className='text-white-100 text-[14px] sm:text-[16px] max-w-sm md:max-w-md'>
+          {/* <p className='text-white-100 text-[14px] sm:text-[16px] max-w-sm md:max-w-md'>
             I build ML-powered systems that solve real problems — from
             distributed infrastructure to production AI.
-          </p>
+          </p> */}
         </div>
 
         <motion.button
