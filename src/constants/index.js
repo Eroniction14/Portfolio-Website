@@ -21,7 +21,11 @@ import {
   aws,
   boston311,
   crossword,
-  job
+  job,
+  query,
+  hub,
+  imagegenerator,
+  sportspulse
 } from "../assets";
 
 
@@ -189,6 +193,54 @@ const projects = [
     ],
     image: job,
     source_code_link: "https://github.com/Eroniction14/distributed-job-scheduler-go",
+  }, 
+  {
+    name: "AI Image Generator",
+    description:
+      "A full-stack AI image generation app — React frontend, Node/Express backend, and the OpenAI API for generation, with MongoDB for storage and Cloudinary for hosting generated images. Includes prompt history, gallery browsing, and download support.",
+    tags: [
+      { name: "React", color: "blue-text-gradient" },
+      { name: "OpenAI", color: "green-text-gradient" },
+      { name: "MongoDB", color: "pink-text-gradient" },
+    ],
+    image: imagegenerator,
+    source_code_link: "https://github.com/Eroniction14/Image_Gen",
+  }, 
+  {
+    name: "Mini Query Engine",
+    description:
+      "A SQL query engine built entirely from scratch in Python — custom tokenizer, recursive-descent parser, and a predicate pushdown optimizer. Benchmarked head-to-head against SQLite for correctness and performance.",
+    tags: [
+      { name: "Python", color: "blue-text-gradient" },
+      { name: "SQL", color: "green-text-gradient" },
+      { name: "QueryOptimization", color: "pink-text-gradient" },
+    ],
+    image: query,
+    source_code_link: "https://github.com/Eroniction14/Mini-Query-Engine",
+  },  
+  {
+    name: "SportsPulse",
+    description:
+      "A distributed player performance tracking platform built for flash-sale-scale sports analytics, splitting a Kafka-driven event ingestion path from a Redis-cached fan query path so live writes never degrade read performance. Deployed on AWS ECS Fargate.",
+    tags: [
+      { name: "Go", color: "blue-text-gradient" },
+      { name: "Kafka", color: "green-text-gradient" },
+      { name: "AWS", color: "pink-text-gradient" },
+    ],
+    image: sportspulse,
+    source_code_link: "https://github.com/Eroniction14/SportsPulse",
+  },
+  {
+    name: "AcademicHub",
+    description:
+      "A real-time academic collaboration platform with Socket.io-powered chat, AI-driven message classification, assignment tracking, and study session coordination. Built with a TypeScript backend and JWT-based auth on PostgreSQL.",
+    tags: [
+      { name: "TypeScript", color: "blue-text-gradient" },
+      { name: "SocketIO", color: "green-text-gradient" },
+      { name: "PostgreSQL", color: "pink-text-gradient" },
+    ],
+    image: hub,
+    source_code_link: "https://github.com/Eroniction14/AcademicHub",
   },
 ];
 

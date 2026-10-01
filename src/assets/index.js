@@ -11,6 +11,9 @@ import hub from "./hub.png";
 import F1 from "./F1.png";
 import crossword from "./crossword.png";
 import job from "./job.png";
+import query from "./query.png";
+import imagegenerator from "./imagegenerator.png";
+import sportspulse from "./sportspulse.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -86,5 +89,8 @@ export {
   hub,
   F1,
   crossword,
-  job
+  job,
+  query,
+  imagegenerator,
+  sportspulse
 };

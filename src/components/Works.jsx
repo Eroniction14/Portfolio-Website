@@ -115,6 +115,7 @@ const Works = () => {
   };
 
   const handlePointerDown = (e) => {
+    if (e.target.closest(".pointer-events-auto")) return;
     isDragging.current = true;
     startX.current = e.pageX;
     startScrollLeft.current = scrollRef.current.scrollLeft;
