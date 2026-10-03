@@ -14,6 +14,8 @@ import job from "./job.png";
 import query from "./query.png";
 import imagegenerator from "./imagegenerator.png";
 import sportspulse from "./sportspulse.png";
+import dashboard from "./dashboard.png";
+import actionman from "./actionman.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -92,5 +94,7 @@ export {
   job,
   query,
   imagegenerator,
-  sportspulse
+  sportspulse,
+  dashboard,
+  actionman
 };

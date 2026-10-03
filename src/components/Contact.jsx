@@ -16,8 +16,10 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
-  // 'idle' | 'success' | 'error' — drives the inline status message
-  // below the form instead of a browser alert() popup.
+  // 'idle' | 'success' | 'error' | 'validation' — drives the inline status
+  // message below the form instead of a browser alert() popup.
+  // 'validation' is distinct from 'error' (an EmailJS send failure) so the
+  // two cases can show different, more useful copy.
   const [status, setStatus] = useState("idle");
   // Briefly boosts the Earth's rotation speed on a successful send,
   // then reverts — a small visual "response" tying the two halves of
@@ -38,6 +40,20 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Guard against empty/whitespace-only submissions. The `required`
+    // attributes on the fields below catch most of this natively, but
+    // this check is the real backstop — it's what actually prevents
+    // emailjs.send() from firing (and showing a false "success") when
+    // the form is empty, blank, or spaces-only.
+    const isBlank =
+      !form.name.trim() || !form.email.trim() || !form.message.trim();
+
+    if (isBlank) {
+      setStatus("validation");
+      return;
+    }
+
     setLoading(true);
     setStatus("idle");
 
@@ -96,6 +112,7 @@ const Contact = () => {
             <input
               type='text'
               name='name'
+              required
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
@@ -107,6 +124,7 @@ const Contact = () => {
             <input
               type='email'
               name='email'
+              required
               value={form.email}
               onChange={handleChange}
               placeholder='you@example.com'
@@ -118,6 +136,7 @@ const Contact = () => {
             <textarea
               rows={7}
               name='message'
+              required
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
@@ -137,6 +156,11 @@ const Contact = () => {
             {status === "success" && (
               <p className='text-green-400 text-[14px] font-medium'>
                 Thank you — I'll get back to you as soon as possible.
+              </p>
+            )}
+            {status === "validation" && (
+              <p className='text-red-400 text-[14px] font-medium'>
+                Please fill in your name, email, and message before sending.
               </p>
             )}
             {status === "error" && (

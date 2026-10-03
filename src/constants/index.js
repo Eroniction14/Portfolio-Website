@@ -25,7 +25,9 @@ import {
   query,
   hub,
   imagegenerator,
-  sportspulse
+  sportspulse,
+  dashboard,
+  actionman,
 } from "../assets";
 
 
@@ -241,6 +243,31 @@ const projects = [
     ],
     image: hub,
     source_code_link: "https://github.com/Eroniction14/AcademicHub",
+  },
+  {
+    name: "Stream Processor",
+    description:
+      "A production-style pipeline in Go and Kafka, paired with an Angular dashboard for watching throughput and dead letters, with fault-injection controls to trigger malformed events. Achieves ~90µs latency with Prometheus/Grafana observability.",
+    tags: [
+      { name: "Go", color: "blue-text-gradient" },
+      { name: "Kafka", color: "green-text-gradient" },
+      { name: "Prometheus", color: "pink-text-gradient" },
+    ],
+    
+    image: dashboard,
+    source_code_link: "https://github.com/Eroniction14/Stream_Processor",
+  },
+  {
+    name: "Action Man",
+    description:
+      "A 2D side-scrolling platformer built in Unity, featuring a health system, aerial enemies, and collectible pickups across multi-level platform layouts, with simple keyboard-based player controls, using Unity's tilemap-based level design and 2D physics.",
+    tags: [
+      { name: "Unity", color: "blue-text-gradient" },
+      { name: "C#", color: "green-text-gradient" },
+      { name: "GameDev", color: "pink-text-gradient" },
+    ],
+    image: actionman,
+    source_code_link: "https://github.com/Eroniction14/Action_Man",
   },
 ];
 
