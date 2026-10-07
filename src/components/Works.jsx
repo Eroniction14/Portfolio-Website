@@ -81,10 +81,40 @@ const Works = () => {
   // With 3 copies rendered back-to-back, this is scrollWidth / 3.
   const setWidth = useRef(0);
 
+  // Custom scrollbar refs. Updated directly (not via state) so scrolling
+  // doesn't re-render all the cards on every frame.
+  const trackRef = useRef(null);
+  const thumbRef = useRef(null);
+  const ghostRef = useRef(null);
+  const barRef = useRef(null);
+  const isThumbDragging = useRef(false);
+
   // Render 3 copies: [buffer-before] [real list] [buffer-after].
   // This gives room to drag past either end of the "real" middle copy
   // before we need to silently snap back into range.
   const tripled = [...projects, ...projects, ...projects];
+
+  // Position the scrollbar thumb based on where we are within ONE set of
+  // projects, so the loop's invisible jumps never show up in the bar.
+  // When the view wraps from the last project back to the first, the thumb
+  // wraps too: part of it is cut off on the right and the "ghost" copy
+  // shows the rest entering from the left.
+  const updateThumb = () => {
+    const el = scrollRef.current;
+    const w = setWidth.current;
+    if (!el || !w || !thumbRef.current || !ghostRef.current) return;
+
+    const pos = ((el.scrollLeft % w) + w) % w;
+    const frac = pos / w;
+    // Thumb is drawn at 75% of the visible fraction so it reads as a
+    // slimmer indicator. Lower for shorter, raise toward 1 for longer.
+    const size = Math.min(el.clientWidth / w, 1) * 0.5;
+
+    thumbRef.current.style.width = `${size * 100}%`;
+    thumbRef.current.style.left = `${frac * 100}%`;
+    ghostRef.current.style.width = `${size * 100}%`;
+    ghostRef.current.style.left = `${(frac - 1) * 100}%`;
+  };
 
   useLayoutEffect(() => {
     const el = scrollRef.current;
@@ -93,6 +123,19 @@ const Works = () => {
     // Start scrolled into the middle copy so there's a full set of
     // cards worth of drag room on both the left and right.
     el.scrollLeft = setWidth.current;
+    updateThumb();
+
+    // Card widths change at the sm breakpoint, so re-measure on resize
+    // while keeping the same relative position in the list.
+    const onResize = () => {
+      const old = setWidth.current;
+      const frac = old ? (((el.scrollLeft % old) + old) % old) / old : 0;
+      setWidth.current = el.scrollWidth / 3;
+      el.scrollLeft = setWidth.current * (1 + frac);
+      updateThumb();
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
   // If dragging (or native scrolling) has pushed us past the middle
@@ -136,11 +179,42 @@ const Works = () => {
     if (scrollRef.current) scrollRef.current.style.cursor = "grab";
   };
 
-  // Also wrap on native scroll (trackpad/shift-wheel), so that loops
-  // too — not just click-drag.
-  const handleScroll = () => {
-    if (!isDragging.current) wrapIfNeeded();
+  // Dragging the scrollbar thumb. Moving the thumb across the whole track
+  // scrolls through one full set of projects, like a normal scrollbar.
+  // Dragging right scrolls right (opposite of dragging the cards).
+  const handleThumbDown = (e) => {
+    e.preventDefault();
+    isThumbDragging.current = true;
+    startX.current = e.pageX;
+    startScrollLeft.current = scrollRef.current.scrollLeft;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    // Keep the bar thick while dragging, even if the pointer leaves it.
+    if (barRef.current) barRef.current.style.height = "8px";
   };
+
+  const handleThumbMove = (e) => {
+    if (!isThumbDragging.current) return;
+    const trackWidth = trackRef.current.offsetWidth;
+    const dx = e.pageX - startX.current;
+    scrollRef.current.scrollLeft =
+      startScrollLeft.current + (dx / trackWidth) * setWidth.current;
+    wrapIfNeeded();
+  };
+
+  const stopThumbDragging = () => {
+    isThumbDragging.current = false;
+    if (barRef.current) barRef.current.style.height = "";
+  };
+
+  // Also wrap on native scroll (trackpad/shift-wheel), so that loops
+  // too — not just click-drag. Every scroll, from any source, moves the thumb.
+  const handleScroll = () => {
+    if (!isDragging.current && !isThumbDragging.current) wrapIfNeeded();
+    updateThumb();
+  };
+
+  const thumbClass =
+    "absolute top-0 h-full rounded-full bg-gradient-to-r from-[#915EFF] to-[#bf61ff] cursor-grab active:cursor-grabbing touch-none";
 
   return (
     <>
@@ -175,6 +249,46 @@ const Works = () => {
         {tripled.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index % projects.length} {...project} />
         ))}
+      </div>
+
+      {/* Custom scrollbar. The outer div's padding gives a taller grab area
+          than the visible bar, and hovering anywhere in it thickens the bar. */}
+      <div className='group mt-4 py-3'>
+        <div
+          ref={barRef}
+          role='scrollbar'
+          aria-label='Projects scroll position'
+          aria-orientation='horizontal'
+          className='relative h-1.5 w-full transition-[height] duration-200 group-hover:h-2'
+        >
+          {/* Track */}
+          <div className='absolute inset-0 rounded-full bg-white/[0.08]' />
+
+          {/* Glow sits on a wrapper outside the clipping layer, so the
+              overflow-hidden that clips the wrapping thumb doesn't clip
+              the glow. */}
+          <div
+            className='absolute inset-0'
+            style={{ filter: "drop-shadow(0 0 6px rgba(145, 94, 255, 0.7))" }}
+          >
+            <div
+              ref={trackRef}
+              className='absolute inset-0 rounded-full overflow-hidden'
+            >
+              {[thumbRef, ghostRef].map((ref, i) => (
+                <div
+                  key={i}
+                  ref={ref}
+                  className={thumbClass}
+                  onPointerDown={handleThumbDown}
+                  onPointerMove={handleThumbMove}
+                  onPointerUp={stopThumbDragging}
+                  onPointerCancel={stopThumbDragging}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

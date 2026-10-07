@@ -137,13 +137,12 @@ const experiences = [
   },
 ];
 
-// `type` drives which emoji AchievementCard shows for each entry.
 const testimonials = [
   {
     testimonial:
-      "Conducted a Python workshop for students who had completed Schooling with over 60 participants",
-    name: "LICET",
-    type: "workshop",
+      "Placed 2nd at the MLOps Expo for building an end-to-end Boston 311 platform on GCP, pairing a RAG chatbot with XGBoost dashboards that prioritize high-severity service requests.",
+    name: "Google Cambridge",
+    type: "winner",
   },
   {
     testimonial:
