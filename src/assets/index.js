@@ -16,6 +16,7 @@ import imagegenerator from "./imagegenerator.png";
 import sportspulse from "./sportspulse.png";
 import dashboard from "./dashboard.png";
 import actionman from "./actionman.png";
+import dabfitness from "./dabfitness.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -96,5 +97,6 @@ export {
   imagegenerator,
   sportspulse,
   dashboard,
-  actionman
+  actionman,
+  dabfitness
 };

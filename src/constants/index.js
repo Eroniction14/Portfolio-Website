@@ -28,6 +28,7 @@ import {
   sportspulse,
   dashboard,
   actionman,
+  dabfitness
 } from "../assets";
 
 
@@ -267,6 +268,18 @@ const projects = [
     ],
     image: actionman,
     source_code_link: "https://github.com/Eroniction14/Action_Man",
+  },
+    {
+    name: "DAB Fitness",
+    description:
+      "A Flutter mobile app connecting users with fitness trainers to keep workout routines on track during the COVID lockdowns. Won the LICET Pattarai hackathon, and is being refactored into a production-style app backed by Firebase through the official FlutterFire packages.",
+    tags: [
+      { name: "Flutter", color: "blue-text-gradient" },
+      { name: "Firebase", color: "green-text-gradient" },
+      { name: "Dart", color: "pink-text-gradient" },
+    ],
+    image: dabfitness,
+    source_code_link: "https://github.com/Eroniction14/DAB_Fitness",
   },
 ];
 
