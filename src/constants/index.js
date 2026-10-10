@@ -272,7 +272,7 @@ const projects = [
     {
     name: "DAB Fitness",
     description:
-      "A Flutter mobile app connecting users with fitness trainers to keep workout routines on track during the COVID lockdowns. Won the LICET Pattarai hackathon, and is being refactored into a production-style app backed by Firebase through the official FlutterFire packages.",
+      "A Flutter mobile app connecting users with fitness trainers to keep routines on track during COVID lockdowns. Won the LICET Pattarai hackathon, and is being refactored into a production-style app backed by Firebase through the FlutterFire packages.",
     tags: [
       { name: "Flutter", color: "blue-text-gradient" },
       { name: "Firebase", color: "green-text-gradient" },
